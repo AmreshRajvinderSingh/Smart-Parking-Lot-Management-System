@@ -6,7 +6,7 @@ A comprehensive JavaFX application for managing parking facilities with real-tim
 
 The Smart Parking Lot Management System is a JavaFX-based application that provides an efficient solution for managing parking facilities. The system offers real-time tracking of parking spaces, automated fee calculation, user management, and comprehensive statistics for decision-making.
 
-![Parking System Screenshot](screenshots/main-dashboard.png)
+
 
 ## Features
 
@@ -72,28 +72,6 @@ The Smart Parking Lot Management System is a JavaFX-based application that provi
 ### Default Login
 - Username: `admin`
 - Password: `password`
-
-## Project Structure
-
-edu.northeastern.csye6200/
-├── controllers/          # JavaFX controllers
-│   ├── LoginController
-│   ├── MainController
-│   └── ...
-├── models/               # Data models
-│   ├── User
-│   ├── Vehicle
-│   ├── ParkingSlot
-│   └── ...
-├── services/             # Business logic
-│   ├── ParkingLotManager
-│   ├── EnhancedParkingLotManager
-│   ├── UserManager
-│   └── ...
-├── views/                # FXML view files
-├── styles/               # CSS style sheets
-└── ParkingApp.java       # Main application class
-
 
 
 ## Implementation Details
