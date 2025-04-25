@@ -1,0 +1,2 @@
+USR-0F02AFE6,admin,1216985755,Administrator,admin@parking.com,ADMIN,true
+USR-A147018C,adarsh,1450575459,ADARSH AKHOURI,akhouri.a@northeastern.edu,MEMBER,true

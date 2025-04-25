@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.northeastern.csye6200.controllers.EditUserDialogController"
+            prefWidth="400.0" prefHeight="300.0">
+    <children>
+        <VBox spacing="10.0" AnchorPane.topAnchor="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+            <children>
+                <Label text="Edit User Details" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                
+                <HBox spacing="10">
+                    <Label text="Username:" prefWidth="100"/>
+                    <TextField fx:id="usernameField" editable="false"/>
+                </HBox>
+                <HBox spacing="10">
+    <Label text="Full Name:" prefWidth="100"/>
+    <TextField fx:id="fullNameField"/>
+</HBox>
+
+
+                <HBox spacing="10">
+                    <Label text="Email:" prefWidth="100"/>
+                    <TextField fx:id="emailField"/>
+                </HBox>
+
+                <HBox spacing="10">
+                    <Label text="Role:" prefWidth="100"/>
+                    <ComboBox fx:id="roleComboBox" prefWidth="200"/>
+                </HBox>
+
+                <HBox spacing="10">
+                    <Label text="Active:" prefWidth="100"/>
+                    <CheckBox fx:id="activeCheckBox"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button text="Save" onAction="#handleSave"/>
+                    <Button text="Delete" onAction="#handleDelete" style="-fx-text-fill: red;" />
+                    <Button text="Cancel" onAction="#handleCancel"/>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

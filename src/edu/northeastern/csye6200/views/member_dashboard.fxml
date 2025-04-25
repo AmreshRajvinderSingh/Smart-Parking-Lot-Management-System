@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.northeastern.csye6200.controllers.MemberDashboardController">
+    <children>
+        <VBox spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <TitledPane animated="false" text="Member Information">
+                    <content>
+                        <AnchorPane>
+                            <children>
+                                <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                            <children>
+                                                <Label prefWidth="150.0" text="Name:" />
+                                                <Label fx:id="userNameLabel" text="Member Name" />
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                            <children>
+                                                <Label prefWidth="150.0" text="Membership Tier:" />
+                                                <Label fx:id="membershipTierLabel" text="Silver" />
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                            <children>
+                                                <Label prefWidth="150.0" text="Status:" />
+                                                <Label fx:id="membershipValidLabel" text="Active" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Parking Statistics">
+                    <content>
+                        <AnchorPane>
+                            <children>
+                                <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                            <children>
+                                                <Label prefWidth="150.0" text="Active Vehicles:" />
+                                                <Label fx:id="userActiveVehiclesLabel" text="0" />
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                            <children>
+                                                <Label prefWidth="150.0" text="Total Visits:" />
+                                                <Label fx:id="userTotalVisitsLabel" text="0" />
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                            <children>
+                                                <Label prefWidth="150.0" text="Total Spent:" />
+                                                <Label fx:id="userTotalSpentLabel" text="$0.00" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </TitledPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

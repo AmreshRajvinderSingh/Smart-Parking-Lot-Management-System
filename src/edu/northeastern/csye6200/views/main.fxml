@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.SplitPane?>
+
+<AnchorPane maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="/edu/northeastern/csye6200/styles/theme.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.northeastern.csye6200.controllers.MainController">
+   <children>
+      <VBox prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" styleClass="header">
+   <children>
+      <Label styleClass="title" text="Smart Parking Lot Management System">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</HBox>
+<HBox spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+    <Label fx:id="currentUserNameLabel" text="User: -" styleClass="stat-label"/>
+    <Label fx:id="currentUserRoleLabel" text="Role: -" styleClass="stat-label"/>
+    <Button fx:id="logoutButton"
+            text="Logout"
+            onAction="#handleLogout"
+            styleClass="primary-button"
+            prefWidth="100"/>
+</HBox>
+
+            <TabPane fx:id="mainTabPane" prefHeight="640.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+              <tabs>
+                <Tab fx:id="parkingTab" text="Parking Management">
+                  <content>
+                    <AnchorPane>
+                           <children>
+                              <SplitPane dividerPositions="0.7" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                                       <children>
+                                          <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="40.0" spacing="10.0">
+                                                   <children>
+                                                      <Label styleClass="section-title" text="Parking Slots" />
+                                                      <Button mnemonicParsing="false" onAction="#handleRefreshAction" text="Refresh" />
+                                                      <Button mnemonicParsing="false" onAction="#handleSearchVehicle" text="Search Vehicle" />
+                                                   </children>
+                                                </HBox>
+                                                <TableView fx:id="slotTableView" VBox.vgrow="ALWAYS">
+                                                  <columns>
+                                                    <TableColumn fx:id="slotIdColumn" prefWidth="100.0" text="Slot ID" />
+                                                    <TableColumn fx:id="slotSizeColumn" prefWidth="100.0" text="Size" />
+                                                    <TableColumn fx:id="slotStatusColumn" prefWidth="150.0" text="Status" />
+                                                    <TableColumn fx:id="slotVehicleColumn" prefWidth="250.0" text="Vehicle" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                                       <children>
+                                          <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <TitledPane animated="false" text="Park a Vehicle">
+                                                  <content>
+                                                    <AnchorPane>
+                                                         <children>
+                                                            <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                                                     <children>
+                                                                        <Label prefWidth="100.0" text="Vehicle Type:" />
+                                                                        <ComboBox fx:id="vehicleTypeComboBox" prefWidth="180.0" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                                                     <children>
+                                                                        <Label prefWidth="100.0" text="License Plate:" />
+                                                                        <TextField fx:id="licensePlateField" prefWidth="180.0" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                                                     <children>
+                                                                        <Label prefWidth="100.0" text="Brand:" />
+                                                                        <TextField fx:id="brandField" prefWidth="180.0" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                                                     <children>
+                                                                        <Label prefWidth="100.0" text="Model:" />
+                                                                        <TextField fx:id="modelField" prefWidth="180.0" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                                                     <children>
+                                                                        <Label prefWidth="100.0" text="Color:" />
+                                                                        <TextField fx:id="colorField" prefWidth="180.0" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <Button fx:id="parkVehicleButton" mnemonicParsing="false" onAction="#handleParkVehicle" prefHeight="30.0" styleClass="primary-button" text="Park Vehicle" />
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </TitledPane>
+                                                <TitledPane animated="false" text="Exit a Vehicle">
+                                                  <content>
+                                                    <AnchorPane>
+                                                         <children>
+                                                            <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                                                     <children>
+                                                                        <Label prefWidth="100.0" text="Ticket ID:" />
+                                                                        <TextField fx:id="ticketIdField" prefWidth="180.0" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <Button fx:id="exitVehicleButton" mnemonicParsing="false" onAction="#handleExitVehicle" prefHeight="30.0" styleClass="primary-button" text="Exit Vehicle" />
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </TitledPane>
+                                                <Button fx:id="generateTestDataButton" mnemonicParsing="false" onAction="#handleGenerateTestData" prefHeight="30.0" text="Generate Test Data" />
+                                                <Separator prefWidth="200.0" />
+                                                <TitledPane animated="false" text="Dashboard">
+                                                  <content>
+                                                    <AnchorPane>
+                                                         <children>
+                                                            <VBox spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                                                     <children>
+                                                                        <Label prefWidth="150.0" text="Total Slots:" />
+                                                                        <Label fx:id="dashboardTotalSlotsLabel" styleClass="stat-label" text="0" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                                                     <children>
+                                                                        <Label prefWidth="150.0" text="Available Slots:" />
+                                                                        <Label fx:id="dashboardAvailableSlotsLabel" styleClass="stat-label" text="0" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                                                     <children>
+                                                                        <Label prefWidth="150.0" text="Occupied Slots:" />
+                                                                        <Label fx:id="dashboardOccupiedSlotsLabel" styleClass="stat-label" text="0" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                                                     <children>
+                                                                        <Label prefWidth="150.0" text="Occupancy Rate:" />
+                                                                        <Label fx:id="dashboardOccupancyRateLabel" styleClass="stat-label" text="0%" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                                                                     <children>
+                                                                        <Label prefWidth="150.0" text="Total Revenue:" />
+                                                                        <Label fx:id="dashboardTotalRevenueLabel" styleClass="stat-label" text="\$0.00" />
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </TitledPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <!-- Add this tab after your existing tabs -->
+                <Tab fx:id="ticketsTab" text="Ticket Management">
+                  <content>
+                    <AnchorPane>
+                           <children>
+                              <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <TitledPane animated="false" prefHeight="300.0" text="Active Tickets" VBox.vgrow="ALWAYS">
+                                      <content>
+                                        <AnchorPane>
+                                             <children>
+                                                <TableView fx:id="activeTicketsTableView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="ticketIdColumn" prefWidth="150.0" text="Ticket ID" />
+                                                    <TableColumn fx:id="vehicleLicenseColumn" prefWidth="150.0" text="License Plate" />
+                                                    <TableColumn fx:id="slotIdTicketColumn" prefWidth="150.0" text="Slot ID" />
+                                                    <TableColumn fx:id="entryTimeColumn" prefWidth="250.0" text="Entry Time" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </TitledPane>
+                                    <TitledPane animated="false" prefHeight="300.0" text="Completed Tickets" VBox.vgrow="ALWAYS">
+                                       <content>
+                                          <AnchorPane>
+                                             <children>
+                                                <TableView fx:id="completedTicketsTableView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="completedTicketIdColumn" prefWidth="150.0" text="Ticket ID" />
+                                                      <TableColumn fx:id="completedVehicleLicenseColumn" prefWidth="150.0" text="License Plate" />
+                                                      <TableColumn fx:id="completedEntryTimeColumn" prefWidth="200.0" text="Entry Time" />
+                                                      <TableColumn fx:id="completedExitTimeColumn" prefWidth="200.0" text="Exit Time" />
+                                                      <TableColumn fx:id="completedFeeColumn" prefWidth="100.0" text="Fee" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </TitledPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="statsTab" text="Statistics">
+                  <content>
+                    <AnchorPane>
+                           <children>
+                              <HBox spacing="20.0" styleClass="hbox-container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox spacing="20.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <TitledPane animated="false" text="Parking Occupancy" VBox.vgrow="ALWAYS">
+                                            <content>
+                                              <AnchorPane>
+                                                   <children>
+                                                      <PieChart fx:id="occupancyChart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                            </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" text="Parking Statistics" VBox.vgrow="ALWAYS">
+                                             <content>
+                                                <AnchorPane>
+                                                   <children>
+                                                      <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="40.0" spacing="10.0">
+                                                               <children>
+                                                                  <Label prefWidth="150.0" styleClass="stat-header" text="Total Slots:" />
+                                                                  <Label fx:id="totalSlotsLabel" styleClass="stat-value" text="0" />
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="40.0" spacing="10.0">
+                                                               <children>
+                                                                  <Label prefWidth="150.0" styleClass="stat-header" text="Available Slots:" />
+                                                                  <Label fx:id="availableSlotsLabel" styleClass="stat-value" text="0" />
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="40.0" spacing="10.0">
+                                                               <children>
+                                                                  <Label prefWidth="150.0" styleClass="stat-header" text="Occupied Slots:" />
+                                                                  <Label fx:id="occupiedSlotsLabel" styleClass="stat-value" text="0" />
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="40.0" spacing="10.0">
+                                                               <children>
+                                                                  <Label prefWidth="150.0" styleClass="stat-header" text="Occupancy Rate:" />
+                                                                  <Label fx:id="occupancyRateLabel" styleClass="stat-value" text="0%" />
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="40.0" spacing="10.0">
+                                                               <children>
+                                                                  <Label prefWidth="150.0" styleClass="stat-header" text="Total Revenue:" />
+                                                                  <Label fx:id="totalRevenueLabel" styleClass="stat-value" text="\$0.00" />
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="20.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <TitledPane animated="false" text="Vehicle Types" VBox.vgrow="ALWAYS">
+                                            <content>
+                                              <AnchorPane>
+                                                   <children>
+                                                      <PieChart fx:id="vehicleTypesChart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                            </content>
+                                          </TitledPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="userManagementTab" text="User Management">
+    <AnchorPane>
+        <TableView fx:id="userTable" prefWidth="900.0" prefHeight="500.0">
+            <columns>
+                <TableColumn fx:id="usernameColumn" text="Username" />
+                <TableColumn fx:id="emailColumn" text="Email" />
+                <TableColumn fx:id="roleColumn" text="Role" />
+                <TableColumn fx:id="activeColumn" text="Active" />
+                <TableColumn fx:id="revenueColumn" text="Revenue Generated" />
+            </columns>
+        </TableView>
+        <Button fx:id="editUserButton"
+                layoutX="20" layoutY="520"
+                text="Edit Selected User"
+                onAction="#handleEditUser" />
+    </AnchorPane>
+</Tab>
+
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
