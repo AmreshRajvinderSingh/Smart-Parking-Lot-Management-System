@@ -96,16 +96,3 @@ The User Management tab offers:
   - Queues for FIFO slot assignment
   - Sets for ensuring uniqueness of license plates
 
-## Contributors
-- [Your Name](https://github.com/yourusername)
-- [Team Member 1](https://github.com/teammember1)
-- [Team Member 2](https://github.com/teammember2)
-- [Team Member 3](https://github.com/teammember3)
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgements
-- Northeastern University - CSYE6200 Object-Oriented Design
-- JavaFX community for documentation and resources
-- [Any other acknowledgements]
